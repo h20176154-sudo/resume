@@ -16,10 +16,8 @@ sys.path.append(str(BASE_DIR / 'apps'))
 
 # SECURITY
 SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-secret-key")
-DEBUG = os.environ.get("DEBUG", "False") == "True"
-ALLOWED_HOSTS = [
-    '*'   
-]
+DEBUG = os.environ.get("DEBUG", "True") == "True"
+ALLOWED_HOSTS = ['*']  # Allow all hosts, domains, and IPs
 
 # Application definition
 INSTALLED_APPS = [
@@ -109,34 +107,18 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# CORS settings (React frontend)
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',  # React frontend URL
-    'http://127.0.0.1:3000',
-    'http://localhost:5173',  # Vite dev server
-    'http://127.0.0.1:5173',
-    'http://68.168.218.199',        # VPS frontend
-    'http://68.168.218.199:3000',   # VPS frontend (port 3000)
-    'http://68.168.218.199:80',     # VPS frontend (port 80)
-]
+# CORS settings — allow ALL origins, domains, and IPs globally
+CORS_ALLOW_ALL_ORIGINS = True  # Accepts requests from EVERY website/domain/IP
+# Note: CORS_ALLOWED_ORIGINS is not needed when CORS_ALLOW_ALL_ORIGINS = True
+# Trust ALL origins for CSRF (wildcards supported in Django 4+)
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-    'http://localhost:5000',
-    'http://127.0.0.1:5000',
-    'http://localhost:8080',
-    'http://127.0.0.1:8080',
-    'http://68.168.218.199',        # VPS
-    'http://68.168.218.199:3000',   # VPS frontend (port 3000)
-    'http://68.168.218.199:8000',   # VPS backend
-    'http://68.168.218.199:80',     # VPS (port 80)
+    'http://*',
+    'https://*',
 ]
 CORS_ALLOW_CREDENTIALS = True
 
 # Additional CORS settings for development
-CORS_ALLOW_ALL_ORIGINS = DEBUG  # Only allow all origins in debug mode
+# CORS_ALLOW_ALL_ORIGINS already set to True above
 CORS_ALLOW_HEADERS = [
     'accept',
     'accept-encoding',
