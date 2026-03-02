@@ -115,6 +115,9 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:3000',
     'http://localhost:5173',  # Vite dev server
     'http://127.0.0.1:5173',
+    'http://68.168.218.199',        # VPS frontend
+    'http://68.168.218.199:3000',   # VPS frontend (port 3000)
+    'http://68.168.218.199:80',     # VPS frontend (port 80)
 ]
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000',
@@ -125,6 +128,10 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:5000',
     'http://localhost:8080',
     'http://127.0.0.1:8080',
+    'http://68.168.218.199',        # VPS
+    'http://68.168.218.199:3000',   # VPS frontend (port 3000)
+    'http://68.168.218.199:8000',   # VPS backend
+    'http://68.168.218.199:80',     # VPS (port 80)
 ]
 CORS_ALLOW_CREDENTIALS = True
 
