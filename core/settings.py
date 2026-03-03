@@ -12,6 +12,11 @@ import dj_database_url
 
 # Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load environment variables from the .env file
+from dotenv import load_dotenv
+load_dotenv(BASE_DIR / '.env')
+
 sys.path.append(str(BASE_DIR / 'apps'))
 
 # SECURITY

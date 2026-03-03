@@ -25,3 +25,4 @@ uvicorn
 groq
 python-docx
 httpx
+python-dotenv
